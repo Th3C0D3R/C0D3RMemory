@@ -16,9 +16,9 @@ namespace C0D3RMem.Memory
 			this.pHandler = pHandle;
 		}
 
-		public Int64 GetAddrAfterOffset(Int64 addr, Int64[] offsets)
+		public long GetAddrAfterOffset(long addr, long[] offsets)
 		{
-			Int64 ptr = IntPtr.Zero;
+            long ptr = IntPtr.Zero;
 			for (int i = 0; i < offsets.Length; i++)
 			{
 				ptr = ReadInt64(addr + offsets[i]);
@@ -26,43 +26,43 @@ namespace C0D3RMem.Memory
 			return ptr;
 		}
 
-		public byte[] ReadBytes(Int64 addr, int length)
+		public byte[] ReadBytes(long addr, int length)
 		{
 			byte[] bytes = new byte[length];
 			API.ReadProcessMemory(this.pHandler, addr, bytes, (ulong)bytes.Length, out nint ByteRead);
 			return bytes;
 		}
-		public Int32 ReadInt32(Int64 addr)
+		public int ReadInt32(long addr)
 		{
 			byte[] buffer = new byte[4];
 			API.ReadProcessMemory(this.pHandler, addr, buffer, (ulong)buffer.Length, out nint ByteRead);
 			return BitConverter.ToInt32(buffer, 0);
 		}
-		public UInt32 ReadUInt32(Int64 addr)
+		public uint ReadUInt32(long addr)
 		{
 			byte[] buffer = new byte[4];
 			API.ReadProcessMemory(this.pHandler, addr, buffer, (ulong)buffer.Length, out nint ByteRead);
 			return BitConverter.ToUInt32(buffer, 0);
 		}
-		public Int64 ReadInt64(Int64 addr)
+		public long ReadInt64(long addr)
 		{
 			byte[] buffer = new byte[8];
 			API.ReadProcessMemory(this.pHandler, addr, buffer, (ulong)buffer.Length, out nint ByteRead);
 			return BitConverter.ToInt64(buffer, 0);
 		}
-		public UInt64 ReadUInt64(Int64 addr)
+		public ulong ReadUInt64(long addr)
 		{
 			byte[] buffer = new byte[8];
 			API.ReadProcessMemory(this.pHandler, addr, buffer, (ulong)buffer.Length, out nint ByteRead);
 			return BitConverter.ToUInt64(buffer, 0);
 		}
-		public float ReadFloat(Int64 addr)
+		public float ReadFloat(long addr)
 		{
 			byte[] buffer = new byte[sizeof(float)];
 			API.ReadProcessMemory(this.pHandler, addr, buffer, (ulong)buffer.Length, out nint ByteRead);
 			return BitConverter.ToSingle(buffer, 0);
 		}
-		public string ReadString(Int64 addr, UInt64 _size)
+		public string ReadString(long addr, ulong _size)
 		{
 			byte[] buffer = new byte[_size];
 			API.ReadProcessMemory(this.pHandler, addr, buffer, _size, out nint ByteRead);
@@ -70,7 +70,7 @@ namespace C0D3RMem.Memory
 		}
 
 		// Read Vector3
-		public Vector3 ReadVector3(Int64 addr)
+		public Vector3 ReadVector3(long addr)
 		{
 			Vector3 tmp = new Vector3();
 			byte[] Buffer = new byte[12];
@@ -83,7 +83,7 @@ namespace C0D3RMem.Memory
 			return tmp;
 		}
 		// Read Matrix
-		public Matrix4x4 ReadMatrix(Int64 addr)
+		public Matrix4x4 ReadMatrix(long addr)
 		{
 			Matrix4x4 tmp = new Matrix4x4();
 

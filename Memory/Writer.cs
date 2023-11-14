@@ -19,7 +19,7 @@ namespace C0D3RMem.Memory
             this.reader = read;
         }
 
-        public nint WriteMemory(Int64 addr, byte[] Buffer)
+        public nint WriteMemory(long addr, byte[] Buffer)
         {
             API.VirtualProtectEx(pHandler, (IntPtr)addr, (uint)Buffer.Length, API.PAGE_READWRITE, out uint oldProtect);
 
@@ -27,7 +27,7 @@ namespace C0D3RMem.Memory
 
             return ptrBytesWritten;
         }
-        public nint Write(Int64 baseAddr, dynamic _value, long[]? offsets = null)
+        public nint Write(long baseAddr, dynamic _value, long[]? offsets = null)
         {
             byte[] buffer = BitConverter.GetBytes(_value);
 

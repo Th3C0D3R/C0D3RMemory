@@ -17,7 +17,8 @@
 		</Description>
 		<Deterministic>false</Deterministic>
 		<PackageReadmeFile>doc\readme.md</PackageReadmeFile>
-		<Version>0.0.7-beta</Version>
+		<Version>0.0.9-beta</Version>
+		<PackageOutputPath>C:\Packages\</PackageOutputPath>
 	</PropertyGroup>
 
 	<ItemGroup>
@@ -26,5 +27,5 @@
 			<PackagePath>\</PackagePath>
 		</None>
 	</ItemGroup>
-
+	
 </Project>

@@ -19,25 +19,25 @@ namespace C0D3RMem
         public const uint PROCESS_VM_OPERATION = (0x08);
 
         [DllImport("kernel32.dll")]
-        public static extern IntPtr OpenProcess(UInt32 dwAccess, bool inherit, int pid);
+        public static extern IntPtr OpenProcess(uint dwAccess, bool inherit, int pid);
 
         [DllImport("kernel32.dll")]
         public static extern bool CloseHandle(IntPtr handle);
 
         [DllImport("kernel32.dll", SetLastError = true)]
-        public static extern bool ReadProcessMemory(IntPtr hProcess, Int64 lpBaseAddress, [In, Out] byte[] lpBuffer, UInt64 dwSize, out IntPtr lpNumberOfBytesRead);
+        public static extern bool ReadProcessMemory(IntPtr hProcess, long lpBaseAddress, [In, Out] byte[] lpBuffer, ulong dwSize, out IntPtr lpNumberOfBytesRead);
 
         [DllImport("kernel32.dll")]
-        public static extern bool WriteProcessMemory(IntPtr hProcess, Int64 lpBaseAddress, [In, Out] byte[] lpBuffer, UInt64 dwSize, out IntPtr lpNumberOfBytesWritten);
+        public static extern bool WriteProcessMemory(IntPtr hProcess, long lpBaseAddress, [In, Out] byte[] lpBuffer, ulong dwSize, out IntPtr lpNumberOfBytesWritten);
 
         [DllImport("kernel32", SetLastError = true)]
-        public static extern IntPtr VirtualAllocEx(IntPtr hProcess, IntPtr lpAddress, UInt32 dwSize, uint flAllocationType, uint flProtect);
+        public static extern IntPtr VirtualAllocEx(IntPtr hProcess, IntPtr lpAddress, uint dwSize, uint flAllocationType, uint flProtect);
 
         [DllImport("kernal32.dll")]
         public static extern bool VirtualQueryEx(IntPtr hProcess, IntPtr lpAddress, out MEMORY_BASIC_INFORMATION lpBuffer, uint dwLength);
 
         [DllImport("kernel32.dll", SetLastError = true)]
-        public static extern bool VirtualProtectEx(IntPtr hProcess, IntPtr lpAddress, UInt32 dwSize, uint flNewProtect, out uint lpflOldProtect);
+        public static extern bool VirtualProtectEx(IntPtr hProcess, IntPtr lpAddress, uint dwSize, uint flNewProtect, out uint lpflOldProtect);
 
         public static byte[] ConvertStringToBytes(string byteString)
         {
@@ -89,7 +89,10 @@ namespace C0D3RMem
                 }
                 return _scanner;
             }
-            private set { }
+            private set
+            {
+                _scanner = value;
+            }
         }
         public Reader Reader
         {
@@ -101,7 +104,10 @@ namespace C0D3RMem
                 }
                 return _reader;
             }
-            private set { }
+            private set
+            {
+                _reader = value;
+            }
         }
         public Writer Writer
         {
@@ -113,7 +119,10 @@ namespace C0D3RMem
                 }
                 return _writer;
             }
-            private set { }
+            private set
+            {
+                _writer = value;
+            }
         }
         public IntPtr BaseAddress
         {
@@ -131,13 +140,16 @@ namespace C0D3RMem
         {
             get
             {
-                if(curProc == null)
+                if (curProc == null)
                 {
                     throw new NullReferenceException("C0D3RMemory not initialized! Please call constructor with processname first!");
                 }
                 return curProc;
             }
-            private set { }
+            private set
+            {
+                curProc = value;
+            }
         }
 
         ~C0D3RMemory() { if (ProcessHandle != IntPtr.Zero) API.CloseHandle(ProcessHandle); }
