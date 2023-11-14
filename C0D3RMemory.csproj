@@ -1,0 +1,30 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+	<PropertyGroup>
+		<TargetFramework>net7.0</TargetFramework>
+		<ImplicitUsings>enable</ImplicitUsings>
+		<Nullable>enable</Nullable>
+		<GeneratePackageOnBuild>True</GeneratePackageOnBuild>
+		<PackageId>c0d3rmemory</PackageId>
+		<Title>C0D3R MemoryHelper</Title>
+		<Authors>TH3C0D3R</Authors>
+		<Product>C0D3R MemoryHelper</Product>
+		<PackageTags>memory,reader,writer,aob,scanner,</PackageTags>
+		<Platforms>AnyCPU;x64</Platforms>
+		<Description>
+			Simple Library to Read/Write Memory and Scan for Signature
+			Credits to "swedz c#" (YouTube)
+		</Description>
+		<Deterministic>false</Deterministic>
+		<PackageReadmeFile>doc\readme.md</PackageReadmeFile>
+		<Version>0.0.7-beta</Version>
+	</PropertyGroup>
+
+	<ItemGroup>
+		<None Update="doc\readme.md">
+			<Pack>True</Pack>
+			<PackagePath>\</PackagePath>
+		</None>
+	</ItemGroup>
+
+</Project>
