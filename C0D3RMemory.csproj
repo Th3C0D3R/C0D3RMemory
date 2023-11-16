@@ -19,6 +19,9 @@
 		<PackageReadmeFile>doc\readme.md</PackageReadmeFile>
 		<Version>0.0.9-beta</Version>
 		<PackageOutputPath>C:\Packages\</PackageOutputPath>
+		<RepositoryType>git</RepositoryType>
+		<RepositoryUrl>https://github.com/Th3C0D3R/C0D3RMemory</RepositoryUrl>
+		<PackageProjectUrl>https://github.com/Th3C0D3R/C0D3RMemory</PackageProjectUrl>
 	</PropertyGroup>
 
 	<ItemGroup>
