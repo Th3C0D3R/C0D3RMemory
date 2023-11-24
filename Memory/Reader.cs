@@ -16,12 +16,18 @@ namespace C0D3RMem.Memory
 			this.pHandler = pHandle;
 		}
 
+		/// <summary>
+		/// Reads each pointer at the offset
+		/// </summary>
+		/// <param name="addr">starting address</param>
+		/// <param name="offsets">offsets array</param>
+		/// <returns>the last address it points to</returns>
 		public long GetAddrAfterOffset(long addr, long[] offsets)
 		{
-            long ptr = IntPtr.Zero;
+            long ptr = addr;
 			for (int i = 0; i < offsets.Length; i++)
 			{
-				ptr = ReadInt64(addr + offsets[i]);
+				ptr = ReadInt64(ptr + offsets[i]);
 			}
 			return ptr;
 		}
@@ -68,8 +74,13 @@ namespace C0D3RMem.Memory
 			API.ReadProcessMemory(this.pHandler, addr, buffer, _size, out nint ByteRead);
 			return Encoding.UTF8.GetString(buffer);
 		}
+		
 
-		// Read Vector3
+		/// <summary>
+		/// Reads a Vector3 from the given address
+		/// </summary>
+		/// <param name="addr">address to read from</param>
+		/// <returns></returns>
 		public Vector3 ReadVector3(long addr)
 		{
 			Vector3 tmp = new Vector3();
@@ -82,7 +93,13 @@ namespace C0D3RMem.Memory
 
 			return tmp;
 		}
-		// Read Matrix
+		
+
+		/// <summary>
+		/// Reads a Matrix4x4 from the given address
+		/// </summary>
+		/// <param name="addr">address to read from</param>
+		/// <returns></returns>
 		public Matrix4x4 ReadMatrix(long addr)
 		{
 			Matrix4x4 tmp = new Matrix4x4();
