@@ -19,6 +19,11 @@ namespace C0D3RMem.Memory
 			pHandler = API.OpenProcess(API.PROCESS_ALL_ACCESS, false, tProcess.Id);
 		}
 
+		/// <summary>
+		/// Scans memory for a given byte signature with `?`
+		/// </summary>
+		/// <param name="byteSignature"></param>
+		/// <returns></returns>
 		public List<IntPtr> ScanMemory(byte[] byteSignature)
 		{
 			List<IntPtr> result = new();
