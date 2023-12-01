@@ -1,13 +1,10 @@
-﻿using System;
-using System.Text;
+﻿using C0D3RMem.Memory;
 using System.Diagnostics;
 using System.Runtime.InteropServices;
-using System.Numerics;
-using C0D3RMem.Memory;
 
 namespace C0D3RMem
 {
-	static class API
+    static class API
 	{
 		public const uint MEM_COMMIT = 0x1000;
 		public const uint PAGE_READONLY = 0x02;

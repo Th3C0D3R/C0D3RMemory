@@ -16,7 +16,7 @@
 			Credits to "swedz c#" (YouTube)
 		</Description>
 		<Deterministic>false</Deterministic>
-		<PackageReadmeFile>doc\readme.md</PackageReadmeFile>
+		<PackageReadmeFile>readme.md</PackageReadmeFile>
 		<Version>0.1.0-beta</Version>
 		<PackageOutputPath>C:\Packages\</PackageOutputPath>
 		<RepositoryType>git</RepositoryType>
@@ -28,6 +28,10 @@
 		<None Update="doc\readme.md">
 			<Pack>True</Pack>
 			<PackagePath>\</PackagePath>
+		</None>
+		<None Update="readme.md">
+		  <Pack>True</Pack>
+		  <PackagePath>\</PackagePath>
 		</None>
 	</ItemGroup>
 	
